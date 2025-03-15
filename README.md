@@ -37,19 +37,19 @@ In rural India, access to quality healthcare remains a significant challenge due
 
 ---
 
-### 5. 📄 AI-Powered Health Report Generation *(Optional)*  
+### 5. 📄 AI-Powered Health Report Generation *(TBA)*  
 ✅ Automatically generates and updates patient health records.  
 ✅ Securely stores and organizes patient data for future reference.  
 
 ---
 
-### 6. 📚 Health Education Module *(Optional)*  
+### 6. 📚 Health Education Module *(TBA)*  
 ✅ Provides educational resources on hygiene, nutrition, and disease prevention.  
 ✅ Delivers content in regional languages.  
 
 ---
 
-### 7. 🚨 Emergency Response Integration *(Optional)*  
+### 7. 🚨 Emergency Response Integration *(TBA)*  
 ✅ Links with local emergency services.  
 ✅ Sends automatic alerts for critical medical emergencies.  
 
@@ -72,10 +72,6 @@ In rural India, access to quality healthcare remains a significant challenge due
 3. Medicine stock tracker predicts shortages and sends alerts.  
 4. Telehealth connector enables video consultations.  
 5. Health reports and education modules provide additional support.  
-
----
-
-Here’s the corrected version with proper formatting and consistent syntax:
 
 ---
 
@@ -212,7 +208,7 @@ render.yaml
 🌍 Future Scope
 ✅ Integration with government healthcare systems.
 ✅ Multilingual support for diverse Indian dialects.
-✅ Expansion to wearable device integration.
+✅ Expansion to wearable device integration and mobile app services.
 
 🏅 Why Sehat AI Matters
 Sehat AI is more than just an AI tool — it’s a lifeline for underserved communities. By combining AI with real-time healthcare delivery, Sehat AI empowers rural healthcare infrastructure and improves health outcomes where it matters the most.
