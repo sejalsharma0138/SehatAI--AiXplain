@@ -75,26 +75,41 @@ In rural India, access to quality healthcare remains a significant challenge due
 
 ---
 
+Here’s the corrected version with proper formatting and consistent syntax:
+
+---
+
 ## 🚀 Setup Instructions  
+
 ### 1. **Clone Repository**  
 ```bash
-git clone https://github.com/username/sehat-ai.git
-cd sehat-ai
+git clone https://github.com/username/sehat-ai.git  
+cd sehat-ai  
+```
 
-### 2. **Set Up aiXplain Account and API Keys**
-Sign up for an aiXplain account at https://aixplain.com.
-Generate an API key from the aiXplain developer console.
-Create a .env file in the root directory and add:
+---
+
+### 2. **Set Up aiXplain Account and API Keys**  
+- Sign up for an aiXplain account at [https://aixplain.com](https://aixplain.com).  
+- Generate an API key from the aiXplain developer console.  
+- Create a `.env` file in the root directory and add:  
+
 ```env
 AIXPLAIN_API_KEY="your-api-key"
+```
 
-###3.**Install Dependencies**
-Install required Python libraries:
+---
+
+### 3. **Install Dependencies**  
+Install required Python libraries:  
 ```bash
 pip install -r requirements.txt
+```
 
-###4.** Configure Backend (FastAPI)**
-Create a backend.py file in the root directory:
+---
+
+### 4. **Configure Backend (FastAPI)**  
+Create a `backend.py` file in the root directory:  
 
 ```python
 from fastapi import FastAPI
@@ -104,23 +119,24 @@ app = FastAPI()
 @app.get("/")
 def home():
     return {"message": "Sehat AI Backend Running"}
-Run the backend:
+```
 
+Run the backend:  
 ```bash
 uvicorn backend:app --reload
+```
 
-5. Set Up aiXplain Models
-Use aiXplain’s API to set up models for:
+---
 
-Symptom analysis
-Speech-to-text conversion
-Medicine stock prediction
-Telehealth connection
-Sample connection:
+### 5. **Set Up aiXplain Models**  
+Use aiXplain’s API to set up models for:  
+- Symptom analysis  
+- Speech-to-text conversion  
+- Medicine stock prediction  
+- Telehealth connection  
 
-python
-Copy
-Edit
+Sample connection:  
+```python
 import requests
 
 API_URL = "https://api.aixplain.com/v1/analyze"
@@ -132,12 +148,13 @@ data = {
 
 response = requests.post(API_URL, json=data, headers=HEADERS)
 print(response.json())
-6. Build Frontend (Streamlit)
-Create an app.py file for the frontend:
+```
 
-python
-Copy
-Edit
+---
+
+### 6. **Build Frontend (Streamlit)**  
+Create an `app.py` file for the frontend:  
+```python
 import streamlit as st
 
 st.title("Sehat AI – Healthcare for Rural India")
@@ -145,18 +162,18 @@ st.title("Sehat AI – Healthcare for Rural India")
 symptom = st.text_input("Enter your symptoms:")
 if st.button("Analyze"):
     st.write(f"Analyzing symptoms: {symptom}")
-Run the frontend:
+```
 
-bash
-Copy
-Edit
+Run the frontend:  
+```bash
 streamlit run app.py
-7. Connect Backend with Frontend
-Modify app.py to connect with FastAPI backend:
+```
 
-python
-Copy
-Edit
+---
+
+### 7. **Connect Backend with Frontend**  
+Modify `app.py` to connect with FastAPI backend:  
+```python
 import streamlit as st
 import requests
 
@@ -164,25 +181,33 @@ symptom = st.text_input("Enter your symptoms:")
 if st.button("Analyze"):
     response = requests.get("http://127.0.0.1:8000")
     st.write(response.json())
-8. Deploy to Production
-Frontend:
+```
 
-Deploy the Streamlit app on Vercel or Render:
-bash
-Copy
-Edit
+---
+
+### 8. **Deploy to Production**  
+
+**Frontend:**  
+Deploy the Streamlit app on **Vercel** or **Render**:  
+```bash
 vercel deploy
-Backend:
+```
 
-Deploy FastAPI backend using Render:
-bash
-Copy
-Edit
+**Backend:**  
+Deploy FastAPI backend using **Render**:  
+```bash
 render.yaml
-9. Monitor and Scale
-✅ Set up aiXplain’s fine-tuning options to improve performance.
-✅ Monitor logs and usage metrics to optimize performance.
-✅ Adjust model parameters as needed based on user feedback.
+```
+
+---
+
+### 9. **Monitor and Scale**  
+✅ Set up aiXplain’s fine-tuning options to improve performance.  
+✅ Monitor logs and usage metrics to optimize performance.  
+✅ Adjust model parameters as needed based on user feedback.  
+
+---
+
 
 🌍 Future Scope
 ✅ Integration with government healthcare systems.
@@ -194,18 +219,8 @@ Sehat AI is more than just an AI tool — it’s a lifeline for underserved comm
 
 👩‍💻 Contributors
 Sejal Sharma – GitHub
+Ankit 
+
 👉 Feel free to fork, contribute, or reach out for collaboration! 😎
 
-yaml
-Copy
-Edit
 
----
-
-### ✅ **How to Save and Push**  
-1. Save it as `README.md` in the root directory.  
-2. Push to GitHub:  
-```bash
-git add README.md
-git commit -m "Added project documentation"
-git push origin main
