@@ -206,8 +206,11 @@ render.yaml
 
 
 🌍 Future Scope
+
 ✅ Integration with government healthcare systems.
+
 ✅ Multilingual support for diverse Indian dialects.
+
 ✅ Expansion to wearable device integration and mobile app services.
 
 🏅 Why Sehat AI Matters
