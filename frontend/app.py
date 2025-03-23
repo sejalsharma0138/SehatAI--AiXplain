@@ -4,6 +4,7 @@ import os, time
 import speech_recognition as sr
 from streamlit_autorefresh import st_autorefresh
 
+SYMPTOM_API_URL = "http://127.0.0.1:8000/analyze-symptoms/"
 # Page Configuration
 st.set_page_config(page_title="Sehat AI", layout="wide")
 
