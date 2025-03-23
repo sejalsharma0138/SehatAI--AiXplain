@@ -3,6 +3,9 @@ from PIL import Image
 import os, time
 import speech_recognition as sr
 from streamlit_autorefresh import st_autorefresh
+from stock_tracker import medicine_stock_tracker
+
+MEDICINE_API_URL = "http://127.0.0.1:8000/stock/"
 
 SYMPTOM_API_URL = "http://127.0.0.1:8000/analyze-symptoms/"
 # Page Configuration
@@ -71,9 +74,22 @@ text = {
     "warning_message": {"English": "Please enter symptoms to proceed.", "Hindi": "कृपया आगे बढ़ने के लिए लक्षण दर्ज करें।"},
     "upload_image": {"English": "Upload Image", "Hindi": "छवि अपलोड करें"},
     "record_voice": {"English": "🎙️ Record Voice", "Hindi": "🎙️ आवाज़ रिकॉर्ड करें"},
-    "medicine_stock": {"English": "💊 Medicine Stock Tracker", "Hindi": "💊 दवा स्टॉक ट्रैकर"},
-    "check_stock": {"English": "Check Stock", "Hindi": "स्टॉक की जांच करें"},
-    "stock_fetched": {"English": "✅ Stock details fetched!", "Hindi": "✅ स्टॉक विवरण लाया गया!"},
+    # "medicine_stock": {"English": "💊 Medicine Stock Tracker", "Hindi": "💊 दवा स्टॉक ट्रैकर"},
+    # "check_stock": {"English": "Check Stock", "Hindi": "स्टॉक की जांच करें"},
+    # "stock_fetched": {"English": "✅ Stock details fetched!", "Hindi": "✅ स्टॉक विवरण लाया गया!"},
+    
+     "medicine_stock": {"English": "Medicine Stock Tracker", "Hindi": "दवा स्टॉक ट्रैकर"},
+    "check_stock": {"English": "Check Stock", "Hindi": "स्टॉक जांचें"},
+    "stock_fetched": {"English": "Stock data fetched successfully!", "Hindi": "स्टॉक डेटा सफलतापूर्वक प्राप्त किया गया!"},
+    "update_stock": {"English": "Update Stock", "Hindi": "स्टॉक अपडेट करें"},
+    "predict_shortage": {"English": "Predict Shortages", "Hindi": "भविष्य की कमी का पूर्वानुमान"},
+    "medicine_name": {"English": "Medicine Name", "Hindi": "दवा का नाम"},
+    "quantity": {"English": "Quantity", "Hindi": "मात्रा"},
+    "update_success": {"English": "Stock Updated Successfully!", "Hindi": "स्टॉक सफलतापूर्वक अपडेट किया गया!"},
+    "update_fail": {"English": "Failed to update stock", "Hindi": "स्टॉक अपडेट करने में विफल"},
+    "ai_prediction": {"English": "AI Shortage Prediction", "Hindi": "एआई पूर्वानुमान"},
+    "prediction_fail": {"English": "AI Prediction Failed", "Hindi": "एआई पूर्वानुमान विफल"},
+
     "telehealth": {"English": "🩺 Telehealth", "Hindi": "🩺 टेलीहेल्थ"},
     "start_call": {"English": "Start Video Call", "Hindi": "वीडियो कॉल शुरू करें"},
     "opening_call": {"English": "🔗 Opening video consultation...", "Hindi": "🔗 वीडियो परामर्श खोल रहा है..."},
@@ -136,8 +152,32 @@ if menu == text["symptom_checker"][language]:
 # Medicine Stock Tracker
 elif menu == text["medicine_stock"][language]:
     col1.subheader(text["medicine_stock"][language])
+
+    # Fetch and Display Medicine Stock
     if col1.button(text["check_stock"][language]):
         col1.success(text["stock_fetched"][language])
+        st.title("💊 Sehat AI - Medicine Stock Tracker")
+        medicine_stock_tracker()
+
+    # Update Stock Form
+    with col1.form("update_stock_form"):
+        st.subheader(text["update_stock"][language])
+        medicine_name = st.text_input(text["medicine_name"][language])
+        quantity = st.number_input(text["quantity"][language], min_value=0, step=1)
+        submit_button = st.form_submit_button(text["update_stock"][language])
+
+        if submit_button:
+            if medicine_name and quantity > 0:
+                # Call backend API to update stock (You need to implement the API call)
+                col1.success(text["update_success"][language])
+            else:
+                col1.error(text["update_fail"][language])
+
+    # Predict Shortages
+    if col1.button(text["predict_shortage"][language]):
+        # Call backend AI model for shortage prediction (You need to implement this API)
+        col1.info(text["ai_prediction"][language])
+       
 
 # Telehealth Connector
 elif menu == text["telehealth"][language]:

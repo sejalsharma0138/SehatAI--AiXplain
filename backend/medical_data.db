@@ -1,0 +1,29 @@
+-- Create the medicines table
+CREATE TABLE medicines (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    category TEXT,
+    quantity INTEGER,
+    expiry_date TEXT
+);
+
+-- Create the patients table
+CREATE TABLE patients (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    age INTEGER,
+    condition TEXT,
+    prescribed_medicine TEXT
+);
+
+-- Insert sample medicines
+INSERT INTO medicines (name, category, quantity, expiry_date) VALUES 
+('Paracetamol', 'Painkiller', 100, '2026-12-01'),
+('Amoxicillin', 'Antibiotic', 50, '2025-08-15'),
+('Metformin', 'Diabetes', 30, '2027-04-10');
+
+-- Insert sample patients
+INSERT INTO patients (name, age, condition, prescribed_medicine) VALUES 
+('Ramesh Gupta', 45, 'Fever', 'Paracetamol'),
+('Sita Devi', 60, 'Diabetes', 'Metformin'),
+('Arun Kumar', 30, 'Infection', 'Amoxicillin');
