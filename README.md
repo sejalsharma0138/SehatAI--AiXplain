@@ -62,7 +62,7 @@ In rural India, access to quality healthcare remains a significant challenge due
 | **Backend**         | FastAPI                   |
 | **AI Models**       | aiXplain                  |
 | **Database**        | SQLite/PostgreSQL         |
-| **Deployment**      | Vercel- |
+
 
 ---
 
@@ -126,8 +126,7 @@ streamlit run app.py
 
 ---
 
-### **Deploy to Production**  
-In-Process
+### **Deploy to Production -- In-Process**
 ---
 
 ### **Monitor and Scale**  
