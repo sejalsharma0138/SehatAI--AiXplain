@@ -23,7 +23,7 @@ In rural India, access to quality healthcare remains a significant challenge due
 
 ---
 
-### 3. 🩺 Telehealth Connector  
+### 3. 🩺 Telehealth Connector *(TBA)* 
 ✅ Enables video consultations with doctors using aiXplain’s agent connectors.  
 ✅ Ensures secure, real-time communication.  
 ✅ Maintains patient confidentiality using aiXplain’s built-in security.  
@@ -62,7 +62,7 @@ In rural India, access to quality healthcare remains a significant challenge due
 | **Backend**         | FastAPI                   |
 | **AI Models**       | aiXplain                  |
 | **Database**        | SQLite/PostgreSQL         |
-| **Deployment**      | to be added |
+| **Deployment**      | Vercel- |
 
 ---
 
@@ -104,18 +104,8 @@ pip install -r requirements.txt
 
 ---
 
-### 4. **Configure Backend (FastAPI)**  
-Create a `backend.py` file in the root directory:  
+### 4. **Run the Backend (FastAPI)**  
 
-```python
-from fastapi import FastAPI
-
-app = FastAPI()
-
-@app.get("/")
-def home():
-    return {"message": "Sehat AI Backend Running"}
-```
 
 Run the backend:  
 ```bash
@@ -124,80 +114,23 @@ uvicorn backend:app --reload
 
 ---
 
-### 5. **Set Up aiXplain Models**  
-Use aiXplain’s API to set up models for:  
-- Symptom analysis  
-- Speech-to-text conversion  
-- Medicine stock prediction  
-- Telehealth connection  
 
-Sample connection:  
-```python
-import requests
 
-API_URL = "https://api.aixplain.com/v1/analyze"
-HEADERS = {"Authorization": f"Bearer {AIXPLAIN_API_KEY}"}
-
-data = {
-    "input_text": "I have a headache and fever."
-}
-
-response = requests.post(API_URL, json=data, headers=HEADERS)
-print(response.json())
-```
-
----
-
-### 6. **Build Frontend (Streamlit)**  
-Create an `app.py` file for the frontend:  
-```python
-import streamlit as st
-
-st.title("Sehat AI – Healthcare for Rural India")
-
-symptom = st.text_input("Enter your symptoms:")
-if st.button("Analyze"):
-    st.write(f"Analyzing symptoms: {symptom}")
-```
+### 5. **Run Frontend (Streamlit)**  
 
 Run the frontend:  
 ```bash
 streamlit run app.py
 ```
 
----
-
-### 7. **Connect Backend with Frontend**  
-Modify `app.py` to connect with FastAPI backend:  
-```python
-import streamlit as st
-import requests
-
-symptom = st.text_input("Enter your symptoms:")
-if st.button("Analyze"):
-    response = requests.get("http://127.0.0.1:8000")
-    st.write(response.json())
-```
 
 ---
 
-### 8. **Deploy to Production**  
-
-**Frontend:**  
-Deploy the Streamlit app on **Vercel** or **Render**:  
-```bash
-vercel deploy
-```
-
-**Backend:**  
-Deploy FastAPI backend using **Render**:  
-```bash
-render.yaml
-```
-
+### **Deploy to Production**  
+In-Process
 ---
 
-### 9. **Monitor and Scale**  
+### **Monitor and Scale**  
 ✅ Set up aiXplain’s fine-tuning options to improve performance.  
 ✅ Monitor logs and usage metrics to optimize performance.  
 ✅ Adjust model parameters as needed based on user feedback.  
